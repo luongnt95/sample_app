@@ -1,0 +1,6 @@
+<!-- data: {disable_with: } to prevent double submit that can cause uniqure error in database -->
+<%= form_for(current_user.following_relationships.find_by(followed_id: @user.id),
+             html: { method: :delete },
+             remote: true) do |f| %>
+  <%= f.submit "Unfollow", class: "btn", data: {disable_with: "Unfollowing ..."} %>
+<% end %>

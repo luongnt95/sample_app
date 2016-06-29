@@ -1,0 +1,6 @@
+<!-- followingrelationships/create don't have id so we must to pass hidden_field_tag -->
+<!-- data: {disable_with: } to prevent double submit that can cause uniqure error in database -->
+<%= form_for(current_user.following_relationships.build, remote: true) do |f| %>
+  <div><%= hidden_field_tag :followed_id, @user.id %></div>
+  <%= f.submit "Follow", class: "btn btn-primary", data: {disable_with: "Following ..."} %>
+<% end %>
